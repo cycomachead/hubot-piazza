@@ -1,4 +1,4 @@
-# hubot-hubot-piazza
+# hubot-piazza
 
 A simple hubot script to integrate with Piazza.com
 
@@ -8,13 +8,13 @@ See [`src/hubot-piazza.coffee`](src/hubot-piazza.coffee) for full documentation.
 
 In hubot project repo, run:
 
-`npm install hubot-hubot-piazza --save`
+`npm install hubot-piazza --save`
 
-Then add **hubot-hubot-piazza** to your `external-scripts.json`:
+Then add **hubot-piazza** to your `external-scripts.json`:
 
 ```json
 [
-  "hubot-hubot-piazza"
+  "hubot-piazza"
 ]
 ```
 

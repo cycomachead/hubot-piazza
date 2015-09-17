@@ -1,5 +1,5 @@
 {
-  "name": "hubot-hubot-piazza",
+  "name": "hubot-piazza",
   "description": "A simple hubot script to integrate with Piazza.com",
   "version": "0.0.0",
   "author": "Michael Ball <cycomachead@gmail.com>",
@@ -9,11 +9,11 @@
 
   "repository": {
     "type": "git",
-    "url": "git://github.com/hubot-scripts/hubot-hubot-piazza.git"
+    "url": "git://github.com/hubot-scripts/hubot-piazza.git"
   },
 
   "bugs": {
-    "url": "https://github.com/hubot-scripts/hubot-hubot-piazza/issues"
+    "url": "https://github.com/hubot-scripts/hubot-piazza/issues"
   },
 
   "dependencies": {
