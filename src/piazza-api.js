@@ -28,7 +28,7 @@ function formatPostInfo (postData, num) {
     // Extract content from any html tag, but usually it's <p>
     snippet = $.load(postData.content)('*').text();
     snippet = snippet.length > 200 ? snippet.slice(0,   200) + '…' : snippet;
-    timeago = 'From: ' + moment(postData.created).fromNow();    
+    timeago = 'Posted: ' + moment(postData.created).fromNow();    
     url = piazzaURL(postData.classId, num);
     
     return  [ intro, url, timeago, title, snippet ].join('\n\t');
