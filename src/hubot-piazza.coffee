@@ -1,5 +1,5 @@
 # Description
-#   A simple hubot script to integrate with Piazza.com
+#   A get info about posts in your class' Piazza forum in chat!
 #
 # Configuration:
 #   HUBOT_PIAZZA_ROOMS - See README.md for configuration detauks.
@@ -7,10 +7,7 @@
 #   HUBOT_PIAZZA_PASSWORD
 #
 # Commands:
-#   @(\d+) - Match a Piazza post number, and return a link.
-#
-# Notes:
-#   <optional notes required for the script>
+#   @(\d+) - Match a Piazza post number, and return a link
 #
 # Author:
 #   Michael Ball <cycomachead@gmail.com>
@@ -27,6 +24,8 @@ getClassID = (room) ->
   if (config.indexOf('=') == -1)
     return config
   mappings = qs.parse(config)
+  if not mappings[room] and mappings['DEFAULT']
+    return mappings['DEFAULT']
   return mappings[room]
   
 module.exports = (robot) ->
