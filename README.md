@@ -24,7 +24,8 @@ There are 3 environment variables you must set:
 
 * `HUBOT_PIAZZA_USERNAME` and
 * `HUBOT_PIAZZA_PASSWORD`
-Are the login credentials of a course TA. *NOTE*: I recommend creating a separate "bot-only" TA account for this info so that you don't risk revealing a personal password to everyone. (Of course, if you generated a random, unique, and cryptographically secure password for each service, you probably wouldn't care about others having access to your Piazza account. :stuck_out_tongue:)
+	Are the login credentials of a course TA. 
+	**NOTE**: I recommend creating a separate "bot-only" TA account for this info so that you don't risk revealing a personal password to everyone. (Of course, if you generated a random, unique, and cryptographically secure password for each service, you probably wouldn't care about others having access to your Piazza account. :stuck_out_tongue:)
 
 * `HUBOT_PIAZZA_ROOMS`
 This maps a Piazza course ID to your chat rooms. There are two options here:

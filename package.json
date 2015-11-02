@@ -1,16 +1,16 @@
 {
   "name": "hubot-piazza",
   "description": "Get info about posts in your class' Piazza forum in chat!",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "author": "Michael Ball <cycomachead@gmail.com>",
   "license": "MIT",
   "keywords": "hubot, hubot-scripts, piazza, education, chat, piazzza",
   "repository": {
     "type": "git",
-    "url": "git://github.com/hubot-scripts/hubot-piazza.git"
+    "url": "git://github.com/cycomachead/hubot-piazza.git"
   },
   "bugs": {
-    "url": "https://github.com/hubot-scripts/hubot-piazza/issues"
+    "url": "https://github.com/cycomachead/hubot-piazza/issues"
   },
   "dependencies": {
     "cheerio": "^0.19.0",
