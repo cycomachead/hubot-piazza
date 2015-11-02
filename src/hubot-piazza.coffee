@@ -24,7 +24,7 @@ piazzaAPI = require('./piazza-api.js');
 # Format is either: 'classID' or 'roomID=classID&room2=class2'
 getClassID = (room) ->
   config = process.env.HUBOT_PIAZZA_ROOMS
-  if (config.indexOf('=') != -1)
+  if (config.indexOf('=') == -1)
     return config
   mappings = qs.parse(config)
   return mappings[room]
@@ -45,10 +45,10 @@ module.exports = (robot) ->
     return
   
   robot.hear /@(\d+)/i, (res) ->
-    classID = getClassID res.room
+    classID = getClassID res.message.room
     
     if !classID
       robot.logger.warning 'No Piazza Class ID found for room: ' + res.room
       return
-    res.reply piazzaAPI.getPiazzaMessage uname, passw, classID, res.match[1]
+    res.send piazzaAPI.getPiazzaMessage uname, passw, classID, res.match[1]
 
