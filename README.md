@@ -1,5 +1,5 @@
 # hubot-piazza
-> A get info about posts in your class' Piazza forum in chat!
+> Get info about posts in your class' Piazza forum in chat!
 
 This is simple hubot script to integrate with [Piazza](piazza.com), an educational forum. This script makes it easy to reference posts by Piazza conventions (`@##`) in a typical chat. Since few rational people use numbers as their user names, this poses little (if any) problem in conversations.
 

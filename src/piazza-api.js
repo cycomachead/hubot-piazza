@@ -15,15 +15,19 @@ function getPiazzaPost (username, password, classID, number) {
 }
 
 function formatPostInfo (postData, num) {
-    console.log(postData);
-    var intro, url, timeago, snippet, title;
+    var intro, url, timeago, snippet, title, type, state;
     
-    intro = 'Post @' + num + ':'; 
+    type = postData.type;
+    if (type == 'question') {
+        state = isAnswered(postData.changeLog) ? 'Answered' : 'UNANSWERED';
+        type =  state + ' ' + type;
+    }
+    intro = type + ' @' + num + ':'; 
     title = postData.title;
-    title = title.length > 40 ? title.slice(0, 40) + '…' : title;
+    title = title.length > 70 ? title.slice(0, 70) + '…' : title;
     // Extract content from any html tag, but usually it's <p>
     snippet = $.load(postData.content)('*').text();
-    snippet = snippet.length > 125 ? snippet.slice(0,   125) + '…' : snippet;
+    snippet = snippet.length > 200 ? snippet.slice(0,   200) + '…' : snippet;
     timeago = 'From: ' + moment(postData.created).fromNow();    
     url = piazzaURL(postData.classId, num);
     
@@ -32,6 +36,10 @@ function formatPostInfo (postData, num) {
 
 function piazzaURL (courseID, postNum) {
     return 'https://piazza.com/class/' + courseID + '?cid=' + postNum;
+}
+
+function isAnswered (log) {
+    return log.map(function(i) { return i.type }).indexOf('i_answer') != -1;
 }
 
 function getPiazzaMessage (username, password, classID, postNumber) {

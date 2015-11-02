@@ -1,5 +1,5 @@
 # Description
-#   A get info about posts in your class' Piazza forum in chat!
+#   Get info about posts in your class' Piazza forum in chat!
 #
 # Configuration:
 #   HUBOT_PIAZZA_ROOMS - See README.md for configuration detauks.
