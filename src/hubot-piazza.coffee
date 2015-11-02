@@ -46,9 +46,12 @@ module.exports = (robot) ->
   
   robot.hear /@(\d+)/i, (res) ->
     classID = getClassID res.message.room
-    
+    num = res.match[1]
     if !classID
-      robot.logger.warning 'No Piazza Class ID found for room: ' + res.room
+      robot.logger.warning "No Piazza Class ID found for room: #{res.room}"
       return
-    res.send piazzaAPI.getPiazzaMessage uname, passw, classID, res.match[1]
+    
+    piazzaAPI.getPiazzaMessage(uname, passw, classID, num).then(
+      (text) -> res.send text,
+      (err) -> res.send "A Piazza Error Occurred for post #{num}: #{err}" )
 

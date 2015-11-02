@@ -13,6 +13,8 @@
     "url": "https://github.com/hubot-scripts/hubot-piazza/issues"
   },
   "dependencies": {
+    "cheerio": "^0.19.0",
+    "moment": "^2.10.6",
     "piazza-api": "^0.1.4"
   },
   "peerDependencies": {
