@@ -15,18 +15,19 @@ function getPiazzaPost (username, password, classID, number) {
 }
 
 function formatPostInfo (postData, num) {
+    console.log(postData);
     var intro, url, timeago, snippet, title;
     
     intro = 'Post @' + num + ':'; 
     title = postData.title;
-    title = title.length > 40 ? title.slice(40) + '…' : title;
+    title = title.length > 40 ? title.slice(0, 40) + '…' : title;
     // Extract content from any html tag, but usually it's <p>
     snippet = $.load(postData.content)('*').text();
-    snippet = '\t' + snippet.length > 125 ? snippet.slice(125) + '…' : snippet;
+    snippet = snippet.length > 125 ? snippet.slice(0,   125) + '…' : snippet;
     timeago = 'From: ' + moment(postData.created).fromNow();    
     url = piazzaURL(postData.classId, num);
     
-    return  [ intro, url, timeago, title, snippet ].join('\n');
+    return  [ intro, url, timeago, title, snippet ].join('\n\t');
 }
 
 function piazzaURL (courseID, postNum) {
