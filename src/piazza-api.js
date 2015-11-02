@@ -8,28 +8,25 @@ var $ = require('cheerio');
 function getPiazzaPost (username, password, classID, number) {
     return piazza.login(username, password)
     .then(function (user) {
-        console.log('Logged Into Piazza for ', username);
         return user.getClassById(classID);
     }).then(function (course) {
-        console.log('Got Course Data: ', classID);
         return course.getContentById(number);
     });
 }
 
 function formatPostInfo (postData, num) {
-    console.log('ZOMG: Post Data:  ', postData);
-    var url, timeago, snippet, title;
+    var intro, url, timeago, snippet, title;
     
+    intro = 'Post @' + num + ':'; 
     title = postData.title;
-    title = title.slice(50) + (title.length > 50 ? '…' : '');
-    // TODO: Cleanup
-    snippet = postData.content;
-    // TODO: moment JS
-    timeago = postData.created;
+    title = title.length > 40 ? title.slice(40) + '…' : title;
+    // Extract content from any html tag, but usually it's <p>
+    snippet = $.load(postData.content)('*').text();
+    snippet = snippet.length > 125 ? snippet.slice(125) + '…' : snippet;
+    timeago = 'From: ' + moment(postData.created).fromNow();    
+    url = piazzaURL(postData.classId, num);
     
-    url = piazzaURL(postData.classID, num);
-    
-    return  [ title, snippet, timeago, url ].join('\n');
+    return  [ intro, title, snippet, timeago, url ].join('\n\t');
 }
 
 function piazzaURL (courseID, postNum) {
@@ -37,10 +34,8 @@ function piazzaURL (courseID, postNum) {
 }
 
 function getPiazzaMessage (username, password, classID, postNumber) {
-    console.log('getting message:  ', postNumber);
     return getPiazzaPost(username, password, classID, postNumber)
         .then(function (post) {
-            console.log('message promise');
             return formatPostInfo(post, postNumber);
         });
 }
