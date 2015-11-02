@@ -21,6 +21,10 @@ Then add **hubot-piazza** to your `external-scripts.json`:
 ## Sample Interaction
 
 ```
-user1>> hubot hello
-hubot>> hello!
+user1>> Checkout @100
+hubot>> Post @100
+	[url]
+	[time ago]
+	[title]
+	[short text]
 ```

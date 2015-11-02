@@ -22,11 +22,11 @@ function formatPostInfo (postData, num) {
     title = title.length > 40 ? title.slice(40) + '…' : title;
     // Extract content from any html tag, but usually it's <p>
     snippet = $.load(postData.content)('*').text();
-    snippet = snippet.length > 125 ? snippet.slice(125) + '…' : snippet;
+    snippet = '\t' + snippet.length > 125 ? snippet.slice(125) + '…' : snippet;
     timeago = 'From: ' + moment(postData.created).fromNow();    
     url = piazzaURL(postData.classId, num);
     
-    return  [ intro, title, snippet, timeago, url ].join('\n\t');
+    return  [ intro, url, timeago, title, snippet ].join('\n');
 }
 
 function piazzaURL (courseID, postNum) {

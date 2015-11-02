@@ -1,10 +1,10 @@
 {
   "name": "hubot-piazza",
-  "description": "A simple hubot script to integrate with Piazza.com",
-  "version": "0.0.0",
+  "description": "A simple hubot script to show posts from Piazza.com",
+  "version": "0.5.0",
   "author": "Michael Ball <cycomachead@gmail.com>",
   "license": "MIT",
-  "keywords": "hubot, hubot-scripts, piazza, education",
+  "keywords": "hubot, hubot-scripts, piazza, education, chat, piazzza",
   "repository": {
     "type": "git",
     "url": "git://github.com/hubot-scripts/hubot-piazza.git"
