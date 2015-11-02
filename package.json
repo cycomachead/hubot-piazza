@@ -1,7 +1,7 @@
 {
   "name": "hubot-piazza",
   "description": "Get info about posts in your class' Piazza forum in chat!",
-  "version": "0.6.3",
+  "version": "0.6.5",
   "author": "Michael Ball <cycomachead@gmail.com>",
   "license": "MIT",
   "keywords": "hubot, hubot-scripts, piazza, education, chat, piazzza",

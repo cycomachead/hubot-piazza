@@ -8,6 +8,7 @@
 #
 # Commands:
 #   @(\d+) - Match a Piazza post number, and return a link
+#   Hubout piazza email - Show email address Hubot is using to access Piazza.
 #
 # Author:
 #   Michael Ball <cycomachead@gmail.com>
@@ -16,22 +17,27 @@ qs = require('querystring')
 
 piazzaAPI = require('./piazza-api.js');
 
+# Get Config values
+uname = process.env.HUBOT_PIAZZA_USERNAME
+passw = process.env.HUBOT_PIAZZA_PASSWORD
+rooms = process.env.HUBOT_PIAZZA_ROOMS
+ROOMS_MAP = {}
+
+DEFAULT = 'DEFAULT'
 
 # Config is a URL encoded QS as described in README.md
 # Format is either: 'classID' or 'roomID=classID&room2=class2'
-getClassID = (room) ->
-  config = process.env.HUBOT_PIAZZA_ROOMS
-  if (config.indexOf('=') == -1)
-    return config
-  mappings = qs.parse(config)
-  if not mappings[room] and mappings['DEFAULT']
-    return mappings['DEFAULT']
-  return mappings[room]
+getClassID = (chatroom) ->
+  if (rooms.indexOf('=') == -1)
+    return rooms
+  mappings = qs.parse(rooms)
+  if not mappings[chatroom] and mappings[DEFAULT]
+    return mappings[DEFAULT]
+  return mappings[chatroom]
   
 module.exports = (robot) ->
-  uname = process.env.HUBOT_PIAZZA_USERNAME
-  passw = process.env.HUBOT_PIAZZA_PASSWORD
-  rooms = process.env.HUBOT_PIAZZA_ROOMS
+  robot.respond /.*piazza (user(name)?|email).*/i, (res) ->
+    res.send "The Piazza email address is: #{uname}"
   
   if !uname
     robot.logger.warning 'HUBOT_PIAZZA_USERNAME is not set.'
