@@ -15,7 +15,7 @@
   "dependencies": {
     "cheerio": "^0.19.0",
     "moment": "^2.10.6",
-    "piazza-api": "^0.1.4"
+    "node-piazza": "cs10/node-piazza"
   },
   "peerDependencies": {
     "hubot": "2.x"
