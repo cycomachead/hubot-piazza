@@ -8,7 +8,7 @@
 #
 # Commands:
 #   @(\d+) - Match a Piazza post number, and return a link
-#   Hubout piazza email - Show email address Hubot is using to access Piazza.
+#   Hubot piazza email - Show email address Hubot is using to access Piazza.
 #
 # Author:
 #   Michael Ball <cycomachead@gmail.com>
@@ -49,7 +49,7 @@ module.exports = (robot) ->
   if !uname || !passw || !rooms
     return
   
-  robot.hear /@(\d+)/i, (res) ->
+  robot.hear /@(\d+)(?:$|\b)/i, (res) ->
     classID = getClassID res.message.room
     num = res.match[1]
     if !classID
