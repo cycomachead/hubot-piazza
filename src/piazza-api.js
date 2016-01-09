@@ -1,7 +1,7 @@
 /* Piazza API helper for hubot-piazza */
 
 
-var piazza = require('node-piazza');
+var piazza = require('piazza.js');
 var moment = require('moment');
 var $ = require('cheerio');
 
