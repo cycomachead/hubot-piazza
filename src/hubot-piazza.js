@@ -9,6 +9,7 @@
 // Commands:
 //   @(\d+) - Match a Piazza post number, and return a link
 //   Hubot piazza email - Show email address Hubot is using to access Piazza.
+//   Hubot piazza url - Show URL address Hubot is using to access Piazza.
 //
 // Author:
 //   Michael Ball <cycomachead@gmail.com>
