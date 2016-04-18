@@ -54,6 +54,11 @@ module.exports = function(robot) {
         return res.send("The Piazza email address is: " + uname);
     });
     
+    robot.respond(/.*piazza (room|url).*/i, function(res) {
+        var id = piazzaIDByRoom(res.message.room)
+        return res.send("The Piazza URL for this room is: https://piazza.com/class/" + id);
+    });
+    
     if (!uname) {
         robot.logger.warning('HUBOT_PIAZZA_USERNAME is not set.');
     }
@@ -82,7 +87,7 @@ module.exports = function(robot) {
         });
     });
     
-    robot.hear(/(?:^|\s)@(\d+)(?:$|\b)/i, function(res) {
+    robot.hear(/(?:^|\b)@(\d+)(?:$|\b)/i, function(res) {
         var classID, num;
         classID = piazzaIDByRoom(res.message.room);
         num = res.match[1];
