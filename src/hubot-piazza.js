@@ -88,7 +88,7 @@ module.exports = function(robot) {
         });
     });
     
-    robot.hear(/(?:^|\b)@(\d+)(?:$|\b)/i, function(res) {
+    robot.hear(/(?:^|\s)@(\d+)(?:$|\b)/i, function(res) {
         var classID, num;
         classID = piazzaIDByRoom(res.message.room);
         num = res.match[1];
